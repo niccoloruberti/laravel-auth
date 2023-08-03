@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController as DashboardController;
-use App\Http\Controller\Admin\ProjectCOntroller as ProjectCOntroller;
+use App\Http\Controllers\Admin\ProjectController as ProjectCOntroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +27,7 @@ Route::get('/', function () {
 // gestisco la rotta con il controller della dashboard
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function() {
     Route::get('/', [DashboardCOntroller::class, 'index'])->name('dashboard');
+    Route::resource('projects', ProjectCOntroller::class);
 });
 
 

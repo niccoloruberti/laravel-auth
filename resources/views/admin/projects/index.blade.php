@@ -27,7 +27,7 @@
                                 <a href="#" class="btn btn-sm btn-primary">
                                     <i class="fas fa-eye"></i>
                                 </a>
-                                <a href="#" class="btn btn-sm btn-primary">
+                                <a href="#" class="btn btn-sm btn-warning">
                                     <i class="fas fa-edit"></i>
                                 </a>
                                 <form class="d-inline-block" action="#" method="POST">
