@@ -5,7 +5,12 @@
 <div class="container">
     <div class="row">
         <div class="col-12 mt-5">
-            <h1>I miei progetti</h1>
+            <div class="d-flex justify-content-between align-items-center">
+                <h1>I miei progetti</h1>
+                <div>
+                    <a class="btn btn-sm btn-primary" href="{{ route('admin.projects.create')}}">Aggiungi progetto</a>    
+                </div>
+            </div>
         </div>
         <div class="col-12 mt-5">
             <table class="table table-striped">
