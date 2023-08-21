@@ -13,19 +13,34 @@
             </div>
         </div>
         <div class="col-12">
+            @if($errors->any())
+                <div class=" mt-3 w-50 alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <form action="{{ route('admin.projects.store')}}" method="POST">
                 @csrf
                 <div class="form-group mt-5 d-flex flex-column w-25">
                     <label class="control-label">Titolo</label>
-                    <input type="text" id="name" name="name" placeholder="Titolo" required>
+                    <input class="form-control @error('name')is-invalid @enderror" type="text" id="name" name="name" placeholder="Titolo" value="{{ old('name') }}" required>
+                    @error('name')
+                    <div class="text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-group mt-3 d-flex flex-column w-25">
                     <label class="control-label">Link della repository</label>
-                    <input type="text" id="link_repository" name="link_repository" placeholder="link" required>
+                    <input class="form-control @error('link_repository') is-invalid @enderror" type="text" id="link_repository" name="link_repository" placeholder="link" value="{{ old('link_repository') }}" required>
+                    @error('link_repository')
+                    <div class="text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-group mt-3 d-flex flex-column w-25">
                     <label class="control-label">Argomento</label>
-                    <input type="text" id="topic" name="topic" placeholder="Argomento">
+                    <input class="form-control" type="text" id="topic" name="topic" placeholder="Argomento" value="{{ old('topic') }}">
                 </div>
                 <div class="form-group mt-3">
                     <button type="submit" class="btn btn-sm btn-success">Aggiungi</button>

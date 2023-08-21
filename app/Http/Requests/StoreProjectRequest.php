@@ -24,7 +24,16 @@ class StoreProjectRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|max:50',
+            'link_repository' => 'required'
+        ];
+    }
+
+    public function messages() {
+        return [
+            'name.required' => 'il nome del progetto è obbligatorio',
+            'name.max' => 'il titolo non può essere più lungo di :max caraterri',
+            'link_repository.required' => 'il link è obbligatorio'
         ];
     }
 }
