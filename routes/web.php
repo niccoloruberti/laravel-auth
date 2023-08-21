@@ -26,8 +26,8 @@ Route::get('/', function () {
 
 // gestisco la rotta con il controller della dashboard
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function() {
-    Route::get('/', [DashboardCOntroller::class, 'index'])->name('dashboard');
-    Route::resource('projects', ProjectCOntroller::class);
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::resource('projects', ProjectController::class);
 });
 
 

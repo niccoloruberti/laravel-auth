@@ -24,7 +24,7 @@
                             <td>{{ $project->name }}</td>
                             <td>{{ $project->link_repository }}</td>
                             <td>
-                                <a href="#" class="btn btn-sm btn-primary">
+                                <a href="{{ route('admin.projects.show', $project->id)}}" class="btn btn-sm btn-primary">
                                     <i class="fas fa-eye"></i>
                                 </a>
                                 <a href="#" class="btn btn-sm btn-warning">
