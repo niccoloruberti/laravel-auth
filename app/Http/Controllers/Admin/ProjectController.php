@@ -46,7 +46,6 @@ class ProjectController extends Controller
         $slug = $project->generateSlug($data['name']);
         $data['slug'] = $slug;
 
-        // dd($data);
         if($data['img']) {
             $data['img'] = Storage::put('img_thumb', $data['img']);
         }
@@ -90,6 +89,14 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $data = $request->all();
+
+        if($project->img) {
+            Storage::delete($project->img);
+        }
+
+        if($data['img']) {
+            $data['img'] = Storage::put('img_thumb', $data['img']);
+        }
 
         $slug = $project->generateSlug($data['name']);
         $data['slug'] = $slug;
