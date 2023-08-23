@@ -21,6 +21,12 @@
             <h3>Link</h3>
             <div class="border">{{ $project->link_repository }}</div>
         </div>
+        <div class="col-12 mt-5">
+            <h3>Copertina</h3>
+            <div class="border">
+                <img src="{{ asset('storage/'.$project->img)}}">
+            </div>
+        </div>
     </div>
 </div>
 
