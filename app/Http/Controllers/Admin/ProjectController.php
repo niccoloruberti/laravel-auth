@@ -6,6 +6,7 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -44,6 +45,12 @@ class ProjectController extends Controller
 
         $slug = $project->generateSlug($data['name']);
         $data['slug'] = $slug;
+
+        // dd($data);
+        if($data['img']) {
+            $data['img'] = Storage::put('img_thumb', $data['img']);
+        }
+
         $project->fill($data);
 
         $project->save();

@@ -22,7 +22,7 @@
                     </ul>
                 </div>
             @endif
-            <form action="{{ route('admin.projects.store')}}" method="POST">
+            <form action="{{ route('admin.projects.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group mt-5 d-flex flex-column w-25">
                     <label class="control-label">Titolo</label>
@@ -35,6 +35,14 @@
                     <label class="control-label">Link della repository</label>
                     <input class="form-control @error('link_repository') is-invalid @enderror" type="text" id="link_repository" name="link_repository" placeholder="link" value="{{ old('link_repository') }}" required>
                     @error('link_repository')
+                    <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+                {{-- caricamento img --}}
+                <div class="form-group mt-3 d-flex flex-column w-25">
+                    <label class="control-label">Immagine</label>
+                    <input class="form-control" type="file" id="img" name="img" placeholder="Seleziona un file">
+                    @error('img')
                     <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
