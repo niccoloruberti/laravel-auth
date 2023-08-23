@@ -26,7 +26,7 @@ class StoreProjectRequest extends FormRequest
         return [
             'name' => 'required|max:50',
             'link_repository' => 'required',
-            'img' => 'max:50'
+            'img' => 'max:50|mimes:jpg,bmp,png'
         ];
     }
 
@@ -35,7 +35,8 @@ class StoreProjectRequest extends FormRequest
             'name.required' => 'il nome del progetto è obbligatorio',
             'name.max' => 'il titolo non può essere più lungo di :max caraterri',
             'link_repository.required' => 'il link è obbligatorio',
-            'img.max' => 'il file deve essere lungo al massimo :max caratteri'
+            'img.max' => 'il file deve essere lungo al massimo :max caratteri',
+            'img.mimes' => 'il file deve essere un immagine(jpg, bmp, png)'
         ];
     }
 }
